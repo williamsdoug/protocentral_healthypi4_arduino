@@ -299,7 +299,7 @@ void handleWebRequests()
 void webpage()
 {
   server.sendHeader("Location", "/set_network_credentials.html", true);
-  server.send(303, "text/plane", "");
+  server.send(303, "text/plain", "");
 }
 
 void response()
@@ -326,7 +326,7 @@ void response()
 void handleRoot()
 {
   server.sendHeader("Location", "/main.html", true); //Redirect to our html web page
-  server.send(303, "text/plane", "");
+  server.send(303, "text/plain", "");
 }
 
 void handleheartrate()
@@ -1196,20 +1196,20 @@ void HealthyPiV4_Webserver_Init()
   server.on("/network_change", HTTP_GET, []() {
     server.sendHeader("Connection", "close");
     server.sendHeader("Location", "/set_network_credentials.html", true); //Redirect to our html web page
-    server.send(303, "text/plane", "");
+    server.send(303, "text/plain", "");
   });
 
   server.on("/OTA_login", HTTP_GET, []() {
     detachInterrupt(ADS1292_DRDY_PIN);
     server.sendHeader("Connection", "close");
     server.sendHeader("Location", "/ota_login.html", true); //Redirect to our html web page
-    server.send(303, "text/plane", "");
+    server.send(303, "text/plain", "");
   });
 
   server.on("/serverIndex", HTTP_GET, []() {
     server.sendHeader("Connection", "close");
     server.sendHeader("Location", "/ota_upload.html", true); //Redirect to our html web page
-    server.send(303, "text/plane", "");
+    server.send(303, "text/plain", "");
   });
 
   server.on(
